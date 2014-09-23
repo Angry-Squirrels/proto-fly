@@ -16,7 +16,7 @@ class Constraint
 		mEntityB = entityB;
 	}
 	
-	public function resolve() {
+	public function resolve(delta : Float) {
 		
 	}
 }

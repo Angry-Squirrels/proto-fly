@@ -34,11 +34,11 @@ class Entity extends Sprite
 	public function update(delta : Float) {
 		position.addEq(velocity.mul(delta));
 		
-		for (constraint in mConstraints)
-			constraint.resolve();
-			
 		while (mImpulses.length > 0)
 			velocity.addEq(mImpulses.pop());
+			
+		for (constraint in mConstraints)
+			constraint.resolve(delta);
 			
 		x = position.x;
 		y = position.y;

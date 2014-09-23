@@ -20,8 +20,6 @@ class Head extends Part
 	{
 		super(null);
 		
-		velocity.x = 1000;
-		
 		Lib.current.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKDown);
 		Lib.current.stage.addEventListener(KeyboardEvent.KEY_UP, onKUp);
 	}
@@ -36,7 +34,7 @@ class Head extends Part
 	override public function update(delta:Float) 
 	{
 		super.update(delta);
-		trace(velocity);
+		
 		if (mUpDown)
 			velocity.angle-=10;
 		if (mDownDown)

@@ -1,5 +1,6 @@
 package engine.constraint;
 import engine.Entity;
+import engine.geom.Vector2;
 
 /**
  * ...
@@ -16,16 +17,24 @@ class DistConstraint extends Constraint
 		mDist = dist;
 	}
 	
-	override public function resolve() 
+	override public function resolve(delta : Float) 
 	{	
 		var dist = mEntityA.position.sub(mEntityB.position);
 		var angle = dist.angle * Math.PI / 180;
 		
-		if(dist.length > mDist){
-			mEntityA.position.x = mEntityB.position.x + Math.cos(angle) * mDist;
-			mEntityA.position.y = mEntityB.position.y + Math.sin(angle) * mDist;
-			mEntityA.velocity.subEq(mEntityB.velocity);
-		}
+		//mEntityA.velocity = (mEntityB.velocity);
+		//if (dist.length > mDist) {
+			var newX = mEntityB.position.x + Math.cos(angle) * mDist;
+			var newY = mEntityB.position.y + Math.sin(angle) * mDist;
+			
+			var newPos = new Vector2(newX, newY);
+			var diff = newPos.sub(mEntityA.position);
+			diff.muleq(1 / delta);
+			diff.muleq(0.1);
+			mEntityA.applyImpulse(diff);
+			
+			mEntityA.position = newPos;
+		//}
 	}
 	
 }
