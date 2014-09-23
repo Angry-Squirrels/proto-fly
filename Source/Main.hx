@@ -1,5 +1,7 @@
 package;
 
+import game.dragon.Head;
+import game.TestScene;
 import openfl.display.Sprite;
 
 class Main extends Sprite {
@@ -8,6 +10,8 @@ class Main extends Sprite {
 		
 		super ();
 		
+		var scene = new TestScene();
+		addChild(scene);
 	}
 	
 }

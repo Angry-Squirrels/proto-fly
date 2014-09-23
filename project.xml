@@ -4,6 +4,8 @@
 	<meta title="ProtoFly" package="com.example.protofly" version="1.0.0" company="Company Name" />
 	<app main="Main" path="Export" file="ProtoFly" />
 	
+	<window width="800" height="480" fps="60" />
+	
 	<source path="Source" />
 	
 	<haxelib name="openfl" />
